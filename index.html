@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head> <!-- Brain of the website, it controls the website-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport is the size of the website and 
+     width=device-width means that the website will be the same size as the device-->
+
+
+    <title>Nexus-Ds</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+
+    <h1>Nexus-Ds</h1>
+    <p>By Turnt</p>
+
+    <header class="main-header"> <!-- Header -->
+        <div class="logo"> Nexus-Ds </div>
+    </header>
+
+    <main class="layout-container"> <!-- Main Content -->
+
+        <aside class="sidebar-nav"> <!-- Sidebar -->
+            <nav> <!-- Navigation -->
+                <h3 class="nav__title">Basics</h3>
+                <ul class="nav_list">
+                    <li class="nav__item">
+                        <a href="#color" class="nav__link">Colors</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#typography" class="nav__link">Typography</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#spacing" class="nav__link">Spacing & Grid</a>
+                    </li>
+                </ul>
+                <h3 class="nav__title">Components</h3>
+                <ul class="nav_list">
+                    <li class="nav__item">
+                        <a href="#buttons" class="nav__link">Buttons</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cards" class="nav__link">Cards</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#dropdowns" class="nav__link">Dropdowns</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section id="color" class="content-area"> <!-- Content -->
+            <h2> Colour Palette </h2>
+            <p> Main color palette that is used in the website </p>
+            <div class="color-grid">
+
+                <div class="color-card">
+                    <div class="color-card__preview" style="background-color: var(--color-primary);"></div>
+                    <div class="color-card__info">
+                        <strong>Primary</strong>
+                        <code>#2563EB</code>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-card__preview" style="background-color: var(--color-success);"></div>
+                    <div class="color-card__info">
+                        <strong>Success</strong>
+                        <code>#10B981</code>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-card__preview" style="background-color: var(--color-danger);"></div>
+                    <div class="color-card__info">
+                        <strong>Danger</strong>
+                        <code>#EF4444</code>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-card__preview"
+                        style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border);"></div>
+                    <div class="color-card__info">
+                        <strong>Surface</strong>
+                        <code>#FFFFFF</code>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </section>
+        <section id="buttons" class="content-area" style="margin-top: var(--space-xl);">
+            <h2>Butonlar</h2>
+            <p>Kullanıcı etkileşimi için standart buton setimiz.</p>
+
+            <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+
+                <button class="btn btn--primary">Ana Buton</button>
+
+                <button class="btn btn--secondary">İkincil Buton</button>
+
+                <button class="btn btn--outline">Detaylar</button>
+
+                <button class="btn btn--danger">Sil</button>
+
+                <button class="btn btn--ghost">Vazgeç</button>
+
+            </div>
+        </section>
+
+        <section id="typography" class="content-area" style="margin-top: var(--space-xl);">
+            <h2>Tipografi</h2>
+            <p>İçerik hiyerarşisi için kullanılan tipografi ölçekleri.</p>
+
+            <div class="font-info-box">
+                <span style="color: var(--color-text-muted);">Font Ailesi:</span>
+                <strong style="font-size: 1.2rem;">Inter, System UI, Sans-Serif</strong>
+            </div>
+
+            <div class="type-scale">
+
+                <div class="type-row">
+                    <div class="type-row__preview">
+                        <h1>Heading 1 - Ana Başlık</h1>
+                    </div>
+                    <div class="type-row__meta">
+                        <code>h1</code>
+                        <span>36px (2.25rem)</span>
+                        <span>Bold (700)</span>
+                    </div>
+                </div>
+
+                <div class="type-row">
+                    <div class="type-row__preview">
+                        <h2>Heading 2 - Bölüm Başlığı</h2>
+                    </div>
+                    <div class="type-row__meta">
+                        <code>h2</code>
+                        <span>24px (1.5rem)</span>
+                        <span>Bold (700)</span>
+                    </div>
+                </div>
+
+                <div class="type-row">
+                    <div class="type-row__preview">
+                        <h3>Heading 3 - Alt Başlık</h3>
+                    </div>
+                    <div class="type-row__meta">
+                        <code>h3</code>
+                        <span>20px (1.25rem)</span>
+                        <span>Bold (700)</span>
+                    </div>
+                </div>
+
+                <div class="type-row">
+                    <div class="type-row__preview">
+                        <p>
+                            Body Text - Bu bir paragraf metnidir. Okunabilirliği artırmak için
+                            satır yüksekliği ve karakter genişliği optimize edilmiştir.
+                            Uzun metinlerde gözün yorulmaması esastır.
+                        </p>
+                    </div>
+                    <div class="type-row__meta">
+                        <code>p</code>
+                        <span>16px (1rem)</span>
+                        <span>Regular (400)</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>Nexus Design System &copy; 2024</p>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+            HTML5 & CSS3 ile <span style="color: var(--color-danger);"></span> yapılarak kodlandı.
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+</body>
+
+</html>

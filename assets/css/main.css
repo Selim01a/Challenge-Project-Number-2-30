@@ -1,0 +1,418 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Root is the main container of the website, define variables and constants */
+    --color-primary: #2563EB;
+    --color-secondary: #1E40AF;
+
+    --color-success: #10B981;
+    --color-danger: #EF4444;
+
+    --color-bg-body: #F8FAFC;
+    --color-bg-surface: #FFFFFF;
+    --color-text-main: #0F172A;
+    --color-text-muted: #64748B;
+    --color-border: #E2E8F0;
+
+    --space-sm: 0.5rem;
+    /* 8px */
+    --space-md: 1rem;
+    /* 16px */
+    --space-lg: 1.5rem;
+    /* 24px */
+    --space-xl: 3rem;
+    /* 48px */
+    --radius-md: 8px;
+    /* Orta boy yuvarlaklık */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Hafif gölge */
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Belirgin gölge */
+}
+
+* {
+    /* Reset line, removes default margin and padding */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-body);
+    color: var(--color-text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text-main);
+    font-weight: 700;
+    line-height: 1.2;
+    /* Başlıklar satır aralığı daha dar olur */
+    margin-bottom: var(--space-md);
+    /* Altlarına boşluk bırak */
+}
+
+h1 {
+    font-size: var(--font-size-xxl);
+}
+
+/* 36px */
+h2 {
+    font-size: var(--font-size-xl);
+}
+
+/* 24px */
+h3 {
+    font-size: var(--font-size-lg);
+}
+
+/* 20px */
+
+p {
+    margin-bottom: var(--space-md);
+    /* Paragraflar birbirine yapışmasın */
+    color: var(--color-text-muted);
+    /* Metinler simsiyah olmaz, göz yorar */
+    max-width: 65ch;
+    /* OKUNABİLİRLİK KURALI: Satır çok uzun olmamalı */
+}
+
+
+
+
+.main-header {
+    background-color: var(--color-bg-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-md) var(--space-lg);
+}
+
+.layout-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.color-grid {
+    display: grid;
+    margin-top: var(--space-lg);
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.color-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    /* :root'tan çektik */
+    overflow: hidden;
+    /* İçindeki preview taşarsa köşeleri kırp */
+    box-shadow: var(--shadow-sm);
+    /* :root'tan çektik */
+    transition: transform 0.75s, box-shadow 0.75s;
+}
+
+.color-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.color-card__preview {
+    height: 120px;
+    width: 100%;
+}
+
+.color-card__info {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-sm);
+    text-align: center;
+}
+
+.color-card__info code {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-body);
+    padding: 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.sidebar-nav {
+    position: sticky;
+    /* Sidebar'ı sabitle */
+    top: var(--space-lg);
+    /* Sidebar'ı üstten var(--space-lg) kadar boşluk bırak */
+    height: fit-content;
+    /* Sidebar'ı içeriğine göre boyutlandır */
+    overflow-y: auto;
+    /* Scroll barı ekle */
+    background-color: var(--color-bg-surface);
+    /* Sidebar'ı arka plan rengine boyutlandır */
+    border-right: 1px solid var(--color-border);
+    /* Sidebar'ı arka plan rengine boyutlandır */
+}
+
+.nav_title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg) 0 var(--shadow-sm);
+    font-weight: 700;
+}
+
+.nav_list {
+    list-style: none;
+}
+
+.nav__link {
+    display: block;
+    /* Link'leri blok olarak ayarla */
+    text-decoration: none;
+    /* alt çizgi kaldır */
+    color: var(--color-text-main);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    transition: all ease 0.5s;
+}
+
+.nav__link:hover {
+    background-color: #f5efef;
+    color: var(--color-primary);
+}
+
+.nav__link--active {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+}
+
+.nav__link--active:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+
+
+.font-info-box {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* Satır Düzeni */
+.type-row {
+    display: grid;
+    /* Mobilde tek sütun, Geniş ekranda: Solda örnek (%70), Sağda bilgi (%30) */
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    /* Altlarına çizgi çek */
+}
+
+/* Tablet ve üstü için yan yana alalım */
+@media (min-width: 768px) {
+    .type-row {
+        grid-template-columns: 3fr 1fr;
+        /* Sol taraf geniş, sağ taraf dar */
+        align-items: baseline;
+        /* Yazıları aynı hizaya getir */
+    }
+}
+
+/* Sol Taraf (Örnek Metin) */
+.type-row__preview h1,
+.type-row__preview h2,
+.type-row__preview h3,
+.type-row__preview p {
+    margin-bottom: 0;
+    /* Tabloda alt boşluğa gerek yok, zaten padding verdik */
+}
+
+/* Sağ Taraf (Teknik Bilgi: px, rem, weight) */
+.type-row__meta {
+    display: flex;
+    flex-direction: column;
+    /* Bilgileri alt alta diz */
+    gap: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .type-row__meta {
+        text-align: right;
+    }
+}
+
+.type-row__meta code {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+btn {
+    display: inline-flex;
+    /* İçeriği ortalamak için esnek kutu */
+    justify-content: center;
+    /* Yatayda ortala */
+    align-items: center;
+    /* Dikeyde ortala */
+
+    /* Boyutlandırma */
+    padding: 0.75rem 1.5rem;
+    /* Üst/Alt: 12px, Sağ/Sol: 24px */
+    font-size: 1rem;
+    font-weight: 600;
+    /* Biraz kalın yazı */
+
+    /* Süslemeler */
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    /* Üzerine gelince el işareti çıksın */
+    border: 1px solid transparent;
+    /* Sınır çizgisi için yer ayır (Zıplamayı önler) */
+
+    /* Animasyon */
+    transition: all 0.2s ease;
+    /* Renk değişimleri yumuşak olsun */
+
+    /* Tarayıcı varsayılanlarını temizle */
+    font-family: inherit;
+    /* Sayfanın fontunu kullan */
+    line-height: 1.5;
+}
+
+/* Aktif (Tıklanma) Efekti - Hepsinde Ortak */
+.btn:active {
+    transform: scale(0.98);
+    /* Tıklayınca çok hafif küçülsün (Basılma hissi) */
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-dark);
+    /* Hafif gölge ekleyelim */
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* 3. Varyant: SECONDARY (Nötr Gri) */
+.btn--secondary {
+    background-color: white;
+    color: var(--color-text-main);
+    border-color: var(--color-border);
+    /* Çerçeveli gibi dursun */
+}
+
+.btn--secondary:hover {
+    background-color: #F1F5F9;
+    /* Çok hafif gri */
+    border-color: #CBD5E1;
+    /* Çerçeve koyulaşsın */
+}
+
+/* 4. Varyant: DANGER (Kırmızı) */
+.btn--danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.btn--danger:hover {
+    background-color: #DC2626;
+    /* Daha koyu kırmızı (Elle yazdık, değişken de atanabilirdi) */
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* 5. Varyant: OUTLINE (Sadece Çerçeve) */
+.btn--outline {
+    background-color: transparent;
+    /* İçi boş */
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--outline:hover {
+    background-color: #EFF6FF;
+    /* Primary'nin en açık tonu */
+}
+
+/* 6. Varyant: GHOST (Hayalet / Link Gibi) */
+.btn--ghost {
+    background-color: transparent;
+    color: var(--color-text-muted);
+}
+
+.btn--ghost:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Çok hafif gri zemin */
+    color: var(--color-text-main);
+}
+
+
+.main-footer {
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    text-align: center;
+    background-color: var(--color-bg-surface);
+}
+
+.main-footer p {
+    margin-bottom: var(--space-xs);
+    /* Paragrafları birbirine yaklaştır */
+}
+
+/* Tıklanan link mavi kalsın (Focus Hilesi) */
+.nav__link:focus {
+    background-color: var(--color-primary);
+    color: white;
+    outline: none;
+}
+
+/* Sayfa içi hedefleme (Opsiyonel Güzellik) 
+   Hangi bölüme gidildiyse onun başlığı parlasın */
+:target h2 {
+    color: var(--color-primary);
+    animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    /* Sağa hafif kay */
+    100% {
+        transform: translateX(0);
+    }
+}
