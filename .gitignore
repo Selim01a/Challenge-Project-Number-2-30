@@ -1,15 +1,21 @@
-# Klasörleri engellemek için sonuna / koyarız
-node_modules/
-dist/
-
-# Özel dosyaları engellemek için (Güvenlik!)
-.env
-secret_config.json
-
-# Belirli uzantıdaki tüm dosyaları engellemek için * kullanırız
-*.log
-*.tmp
-
-# İşletim sistemi dosyaları
+# --- İşletim Sistemi Çöpleri ---
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Editör Ayarları ---
+.vscode/
+.idea/
+*.sublime-workspace
+*.swp
+
+# --- Log Dosyaları ---
+*.log
+npm-debug.log*
+
+# --- Bağımlılıklar ve Çıktılar ---
+node_modules/
+dist/
+build/
+.env
