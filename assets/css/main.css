@@ -151,7 +151,7 @@ p {
 }
 
 .sidebar-nav {
-    position: relative;
+    position: absolute;
     /* Sidebar'ı sabitle */
     top: var(--space-lg);
     /* Sidebar'ı üstten var(--space-lg) kadar boşluk bırak */
